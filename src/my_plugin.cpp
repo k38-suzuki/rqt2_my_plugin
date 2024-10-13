@@ -3,6 +3,7 @@
 */
 
 #include "rqt2_mypkg/my_plugin.hpp"
+
 #include <QStringList>
 
 namespace rqt2_mypkg
