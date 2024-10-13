@@ -27,7 +27,7 @@ void MyPlugin::initPlugin(qt_gui_cpp::PluginContext& context)
     // access standalone command line arguments
     QStringList argv = context.argv();
     // create QWidget
-    widget_ = new QWidget();
+    widget_ = new MyWidget;
     if(context.serialNumber() > 1) {
         widget_->setWindowTitle(widget_->windowTitle() + " (" + QString::number(context.serialNumber()) + ")");
     }

@@ -6,7 +6,7 @@
 #define RQT2_MYPKG__MY_PLUGIN_HPP_
 
 #include <rqt_gui_cpp/plugin.h>
-#include <QWidget>
+#include "my_widget.hpp"
 #include "rqt2_mypkg/visibility_control.h"
 
 namespace rqt2_mypkg
@@ -15,6 +15,7 @@ namespace rqt2_mypkg
 class MyPlugin
     : public rqt_gui_cpp::Plugin
 {
+    Q_OBJECT
 public:
     MyPlugin();
     virtual void initPlugin(qt_gui_cpp::PluginContext& context) override;
@@ -27,7 +28,7 @@ public:
     //virtual void triggerConfiguration() override;
 private:
     virtual ~MyPlugin();
-    QWidget* widget_;
+    MyWidget* widget_;
 };
 
 }  // namespace rqt2_mypkg

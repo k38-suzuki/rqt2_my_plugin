@@ -8,20 +8,38 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(ament_cmake_ros REQUIRED)
-find_package(rqt_gui_cpp REQUIRED)
 find_package(pluginlib REQUIRED)
+find_package(rqt_gui_cpp REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 pluginlib_export_plugin_description_file(rqt_gui plugins.xml)
 
-add_library(rqt2_mypkg src/my_plugin.cpp)
+set(sources
+  src/my_plugin.cpp
+  src/my_widget.cpp
+)
+
+set(headers
+  include/rqt2_mypkg/my_plugin.hpp
+  include/rqt2_mypkg/my_widget.hpp
+)
+
+qt5_wrap_cpp(rqt2_mypkg_moc ${headers})
+
+add_library(rqt2_mypkg ${sources} ${rqt2_mypkg_moc} ${headers})
+target_link_libraries(rqt2_mypkg Qt5::Widgets)
 target_compile_features(rqt2_mypkg PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 target_include_directories(rqt2_mypkg PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 ament_target_dependencies(
   rqt2_mypkg
-  "rqt_gui_cpp"
   "pluginlib"
+  "rqt_gui_cpp"
+  "rclcpp"
+  "std_msgs"
 )
 
 # Causes the visibility macros to use dllexport rather than dllimport,
