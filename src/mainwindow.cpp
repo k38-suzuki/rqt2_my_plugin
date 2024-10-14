@@ -10,6 +10,7 @@
 #include <QMenu>
 #include <QMenuBar>
 #include <QStatusBar>
+#include <QToolBar>
 
 #include "rqt2_mypkg/my_widget.hpp"
 
@@ -30,8 +31,10 @@ public:
 
     void createActions();
     void createMenus();
+    void createToolBars();
 
     QMenu* fileMenu;
+    QToolBar* fileToolBar;
     QAction* newAct;
     QAction* openAct;
     QAction* saveAct;
@@ -56,6 +59,7 @@ MainWindow::Impl::Impl(MainWindow* self)
 
     createActions();
     createMenus();
+    createToolBars();
 
     QString message = "A context menu is available by right-clicking";
     self->statusBar()->showMessage(message);
@@ -124,6 +128,16 @@ void MainWindow::Impl::createMenus()
     fileMenu->addAction(newAct);
     fileMenu->addAction(openAct);
     fileMenu->addAction(saveAct);
+    fileMenu->addSeparator();
+}
+
+void MainWindow::Impl::createToolBars()
+{
+    fileToolBar = self->addToolBar("File");
+    fileToolBar->addAction(newAct);
+    fileToolBar->addAction(openAct);
+    fileToolBar->addAction(saveAct);
+    fileToolBar->addSeparator();
 }
 
 }
