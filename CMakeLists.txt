@@ -17,11 +17,13 @@ find_package(Qt5 COMPONENTS Widgets REQUIRED)
 pluginlib_export_plugin_description_file(rqt_gui plugins.xml)
 
 set(sources
+  src/mainwindow.cpp
   src/my_plugin.cpp
   src/my_widget.cpp
 )
 
 set(headers
+  include/rqt2_mypkg/mainwindow.hpp
   include/rqt2_mypkg/my_plugin.hpp
   include/rqt2_mypkg/my_widget.hpp
 )
