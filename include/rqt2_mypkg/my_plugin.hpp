@@ -6,7 +6,8 @@
 #define RQT2_MYPKG__MY_PLUGIN_HPP_
 
 #include <rqt_gui_cpp/plugin.h>
-#include "my_widget.hpp"
+
+#include "rqt2_mypkg/my_widget.hpp"
 #include "rqt2_mypkg/visibility_control.h"
 
 namespace rqt2_mypkg
