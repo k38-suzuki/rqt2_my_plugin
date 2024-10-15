@@ -12,20 +12,20 @@ namespace rqt2_mypkg
 
 class MainWindow : public QMainWindow
 {
-   Q_OBJECT
+    Q_OBJECT
 public:
-   MainWindow(QWidget* parent = nullptr);
+    MainWindow(QWidget* parent = nullptr);
 
-   virtual ~MainWindow();
+    virtual ~MainWindow();
 
 protected:
 #ifndef QT_NO_CONTEXTMENU
-   virtual void contextMenuEvent(QContextMenuEvent* event) override;
+    virtual void contextMenuEvent(QContextMenuEvent* event) override;
 #endif
 
 private:
-   class Impl;
-   Impl* impl;
+    class Impl;
+    Impl* impl;
 };
 
 }
