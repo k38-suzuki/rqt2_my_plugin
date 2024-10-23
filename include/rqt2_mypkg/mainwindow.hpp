@@ -28,6 +28,6 @@ private:
     Impl* impl;
 };
 
-}
+}  // namespace rqt2_mypkg
 
 #endif // RQT2_MYPKG__MAIN_WINDOW_HPP_

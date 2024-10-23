@@ -140,4 +140,4 @@ void MainWindow::Impl::createToolBars()
     fileToolBar->addSeparator();
 }
 
-}
+}  // namespace rqt2_mypkg

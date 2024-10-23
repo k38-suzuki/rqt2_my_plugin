@@ -107,4 +107,4 @@ void MyWidget::Impl::on_toolButton_clicked()
     publisher_->publish(message);
 }
 
-}
+}  // namespace rqt2_mypkg

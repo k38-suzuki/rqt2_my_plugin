@@ -23,6 +23,6 @@ private:
     Impl* impl;
 };
 
-}
+}  // namespace rqt2_mypkg
 
 #endif // RQT2_MYPKG__MY_WIDGET_HPP_
